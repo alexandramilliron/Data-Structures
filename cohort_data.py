@@ -62,11 +62,21 @@ def students_by_cohort(filename, cohort='All'):
 
     students = []
 
-    openfile = open(filename)
-    for line in openfile:
-        splitline = line.split("|")
+    the_file = open(filename)
+    for line in the_file:
+      line = line.rstrip()
+      line = line.split("|")
+      full_name = " ".join(line[0:2])
 
+      if line[4] == "G" or line[4] == "I":
+        continue
+      elif line[4] == cohort:
+        students.append(full_name)
+      else:
+        students.append(full_name)
+  
     return sorted(students)
+
 
 
 def all_names_by_house(filename):
@@ -107,10 +117,52 @@ def all_names_by_house(filename):
     slytherin = []
     ghosts = []
     instructors = []
+    rosters = []
 
-    # TODO: replace this with your code
+    the_file = open(filename)
+    for line in the_file:
+      line = line.rstrip()
+      line = line.split("|")
+      full_name = " ".join(line[0:2])
 
-    return []
+      if "Dumbledores Army" in line:
+        dumbledores_army.append(full_name)
+        dumbledores_army.sort
+        roster.extend(dumbledores_army)
+
+      if "Gryffindor" in line:
+        gryffindor.append(full_name)
+        gryffindor.sort()
+        roster.extend(gryffindor)
+
+      if "Hufflepuff" in line:
+        hufflepuff.append(full_name)
+        hufflepuff.sort()
+        roster.extend(hufflepuff)
+        
+      if "Ravenclaw" in line:
+        ravenclaw.append(full_name)
+        ravenclaw.sort()
+        roster.extend(ravenclaw)
+      
+      if "Slytherin" in line:
+        slytherin.append(full_name)
+        slytherin.sort()
+        roster.extend(slytherin)
+
+      if "G" in line:
+        ghosts.append(full_name)
+        ghosts.sort()
+        roster.extend(ghosts)
+
+      if "I" in line:
+        instructors.append(full_name)
+        instructors.sort()
+        roster.extend(instructors)
+        
+
+    #return roster
+
 
 
 def all_data(filename):
