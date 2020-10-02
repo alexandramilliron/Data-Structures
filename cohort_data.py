@@ -78,7 +78,6 @@ def students_by_cohort(filename, cohort='All'):
     return sorted(students)
 
 
-
 def all_names_by_house(filename):
     """Return a list that contains rosters for all houses, ghosts, instructors.
 
@@ -162,7 +161,6 @@ def all_names_by_house(filename):
         
 
     #return roster
-
 
 
 def all_data(filename):
