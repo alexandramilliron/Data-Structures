@@ -17,9 +17,19 @@ def all_houses(filename):
 
     houses = set()
 
-    # TODO: replace this with your code
+
+    openfile = open(filename)
+    for line in openfile:
+        splitline = line.split("|")
+
+        if splitline[2] == "":
+          continue 
+        else:
+          houses.add(splitline[2])       
 
     return houses
+
+all_houses("cohort_data.txt")
 
 
 def students_by_cohort(filename, cohort='All'):
@@ -52,7 +62,9 @@ def students_by_cohort(filename, cohort='All'):
 
     students = []
 
-    # TODO: replace this with your code
+    openfile = open(filename)
+    for line in openfile:
+        splitline = line.split("|")
 
     return sorted(students)
 
@@ -185,7 +197,7 @@ def get_housemates_for(filename, name):
 
 ##############################################################################
 # END OF MAIN EXERCISE.  Yay!  You did it! You Rock!
-#
+
 
 if __name__ == '__main__':
     import doctest
