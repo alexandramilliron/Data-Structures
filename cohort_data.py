@@ -120,30 +120,30 @@ def all_names_by_house(filename):
 
     the_file = open(filename)
     for line in the_file:
-      line = line.rstrip()
-      line = line.split("|")
-      full_name = " ".join(line[0:2])
+        line = line.rstrip()
+        line = line.split("|")
+        full_name = " ".join(line[0:2])
 
-      if "Dumbledore's Army" in line:
-        dumbledores_army.append(full_name)
+        if "Dumbledore's Army" in line:
+            dumbledores_army.append(full_name)
 
-      if "Gryffindor" in line:
-        gryffindor.append(full_name)
+        if "Gryffindor" in line:
+            gryffindor.append(full_name)
 
-      if "Hufflepuff" in line:
-        hufflepuff.append(full_name)
+        if "Hufflepuff" in line:
+            hufflepuff.append(full_name)
         
-      if "Ravenclaw" in line:
-        ravenclaw.append(full_name)
+        if "Ravenclaw" in line:
+            ravenclaw.append(full_name)
       
-      if "Slytherin" in line:
-        slytherin.append(full_name)
+        if "Slytherin" in line:
+            slytherin.append(full_name)
 
-      if "G" in line:
-        ghosts.append(full_name)
+        if "G" in line:
+            ghosts.append(full_name)
 
-      if "I" in line:
-        instructors.append(full_name)         
+        if "I" in line:
+            instructors.append(full_name)         
     
     return [sorted(dumbledores_army),
             sorted(gryffindor),
@@ -178,15 +178,15 @@ def all_data(filename):
 
     the_file = open(filename)
     for line in the_file:
-      line = line.rstrip().split("|")
-      full_name = " ".join(line[0:2])
-      house = line[2]
-      advisor = line[3]
-      cohort = line[4]
+        line = line.rstrip().split("|")
+        full_name = " ".join(line[0:2])
+        house = line[2]
+        advisor = line[3]
+        cohort = line[4]
 
-      tup = (full_name, house, advisor, cohort) 
+        tup = (full_name, house, advisor, cohort) 
 
-      all_data.append(tup)
+        all_data.append(tup)
 
 
     return all_data 
@@ -215,12 +215,12 @@ def get_cohort_for(filename, name):
 
     the_file = open(filename)
     for line in the_file:
-      line = line.rstrip().split("|")
-      name_in_line = " ".join(line[0:2])
-      cohort = line[4]
+        line = line.rstrip().split("|")
+        name_in_line = " ".join(line[0:2])
+        cohort = line[4]
 
-      if name == name_in_line:
-        return cohort 
+        if name == name_in_line:
+            return cohort 
 
     return None
 
@@ -245,13 +245,13 @@ def find_duped_last_names(filename):
 
     the_file = open(filename)
     for line in the_file:
-      line = line.rstrip().split("|")
-      last_name = line[1]
+        line = line.rstrip().split("|")
+        last_name = line[1]
 
-      if last_name in last_names:
-        dupe_names.add(last_name)
+        if last_name in last_names:
+            dupe_names.add(last_name)
 
-      last_names.append(last_name)
+        last_names.append(last_name)
     
     return dupe_names
 
@@ -274,20 +274,20 @@ def get_housemates_for(filename, name):
 
     the_file = open(filename)
     for line in the_file:
-      line = line.rstrip().split("|")
-      name_in_line = " ".join(line[0:2])
+        line = line.rstrip().split("|")
+        name_in_line = " ".join(line[0:2])
 
-      if name == name_in_line:
-        house = line[2]
-        cohort = line[4]
+        if name == name_in_line:
+            house = line[2]
+            cohort = line[4]
 
     the_file = open(filename)
     for line in the_file:
-      line = line.rstrip().split("|")
-      name_in_line = " ".join(line[0:2])
+        line = line.rstrip().split("|")
+        name_in_line = " ".join(line[0:2])
       
-      if line[2] == house and line[4] == cohort and name_in_line != name:
-        housemates.add(name_in_line)
+        if line[2] == house and line[4] == cohort and name_in_line != name:
+            housemates.add(name_in_line)
     
     return housemates
         
